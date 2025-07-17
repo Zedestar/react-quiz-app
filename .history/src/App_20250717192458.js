@@ -98,7 +98,6 @@ function App() {
           points={points}
           index={index}
           numberOfQuestion={numberOfQuestion}
-          totalPoints={totalPoints}
         />
       )}
     </div>

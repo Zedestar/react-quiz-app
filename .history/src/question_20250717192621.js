@@ -9,7 +9,7 @@ function Question({
   points,
   index,
   numberOfQuestion,
-  totalPoints,
+  numberOfQuestion,
 }) {
   console.log(question);
   return (
@@ -18,7 +18,6 @@ function Question({
         index={index}
         numberOfQuestion={numberOfQuestion}
         totalPoints={totalPoints}
-        points={points}
       />
       <h4>{question.question}</h4> <p>Points {points}</p>
       <Options question={question} answer={answer} dispach={dispach} />

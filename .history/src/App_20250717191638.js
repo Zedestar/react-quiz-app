@@ -62,9 +62,6 @@ function App() {
     initialState
   );
   const numberOfQuestion = questions.length;
-  const totalPoints = questions.reduce((accumulator, current) => {
-    return accumulator + current.points;
-  }, 0);
 
   useEffect(function () {
     fetch("http://localhost:9000/questions")
@@ -98,7 +95,6 @@ function App() {
           points={points}
           index={index}
           numberOfQuestion={numberOfQuestion}
-          totalPoints={totalPoints}
         />
       )}
     </div>

@@ -9,17 +9,11 @@ function Question({
   points,
   index,
   numberOfQuestion,
-  totalPoints,
 }) {
   console.log(question);
   return (
     <div>
-      <Progress
-        index={index}
-        numberOfQuestion={numberOfQuestion}
-        totalPoints={totalPoints}
-        points={points}
-      />
+      <Progress index={index} numberOfQuestion={numberOfQuestion} />
       <h4>{question.question}</h4> <p>Points {points}</p>
       <Options question={question} answer={answer} dispach={dispach} />
       <NextQuestion dispach={dispach} answer={answer} />

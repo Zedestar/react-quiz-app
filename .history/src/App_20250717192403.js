@@ -63,7 +63,7 @@ function App() {
   );
   const numberOfQuestion = questions.length;
   const totalPoints = questions.reduce((accumulator, current) => {
-    return accumulator + current.points;
+    accumulator + current.
   }, 0);
 
   useEffect(function () {
@@ -98,7 +98,6 @@ function App() {
           points={points}
           index={index}
           numberOfQuestion={numberOfQuestion}
-          totalPoints={totalPoints}
         />
       )}
     </div>
