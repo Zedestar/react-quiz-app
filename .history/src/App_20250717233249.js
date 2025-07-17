@@ -122,7 +122,6 @@ function App() {
           totalPoints={totalPoints}
           points={points}
           dispach={dispach}
-          questions={questions}
         />
       )}
     </div>

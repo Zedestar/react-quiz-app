@@ -10,6 +10,7 @@ import FinishScreen from "./finish-screen";
 
 const initialState = {
   questions: [],
+  // laoding, error, ready, active, finished
   status: "loading",
   index: 0,
   answer: null,
@@ -58,14 +59,10 @@ function reducer(state, action) {
         };
       }
     case "resetQuiz":
-      return {
-        ...state,
-        questions: action.payload,
-        status: "ready",
-        index: 0,
-        answer: null,
-        points: 0,
-      };
+      return{
+        ...state
+        initialState
+      }
     default:
       throw new Error("The action is unknown");
   }
@@ -118,12 +115,7 @@ function App() {
       )}
 
       {status === "finished" && (
-        <FinishScreen
-          totalPoints={totalPoints}
-          points={points}
-          dispach={dispach}
-          questions={questions}
-        />
+        <FinishScreen totalPoints={totalPoints} points={points} />
       )}
     </div>
   );

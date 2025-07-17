@@ -1,7 +1,7 @@
 function Progress({ index, numberOfQuestion, totalPoints, points }) {
   return (
     <>
-      <progress max={numberOfQuestion} value={index + 1}></progress>
+      <progress max={numberOfQuestion} value={index}></progress>
       <header className="progress">
         <p>
           Question

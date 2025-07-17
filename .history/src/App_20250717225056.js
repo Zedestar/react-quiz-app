@@ -10,7 +10,8 @@ import FinishScreen from "./finish-screen";
 
 const initialState = {
   questions: [],
-  status: "loading",
+  // laoding, error, ready, active, finished
+  status: "finished",
   index: 0,
   answer: null,
   points: 0,
@@ -43,28 +44,13 @@ function reducer(state, action) {
           currentQuestion.correctOption === action.payload
             ? state.points + currentQuestion.points
             : state.points,
+        // index: +1,
       };
     case "nextQuestion":
-      if (state.index < state.questions.length - 1) {
-        return {
-          ...state,
-          index: state.index + 1,
-          answer: null,
-        };
-      } else {
-        return {
-          ...state,
-          status: "finished",
-        };
-      }
-    case "resetQuiz":
       return {
         ...state,
-        questions: action.payload,
-        status: "ready",
-        index: 0,
+        index: state.index + 1,
         answer: null,
-        points: 0,
       };
     default:
       throw new Error("The action is unknown");
@@ -102,7 +88,7 @@ function App() {
       <Header />
       {status === "loading" && <Loader />}
       {status === "error" && <Error />}
-      {status === "ready" && (
+      {status === "finished" && (
         <StartScreen numberOfQuestion={numberOfQuestion} dispach={dispach} />
       )}
       {status === "active" && (
@@ -118,12 +104,7 @@ function App() {
       )}
 
       {status === "finished" && (
-        <FinishScreen
-          totalPoints={totalPoints}
-          points={points}
-          dispach={dispach}
-          questions={questions}
-        />
+        <FinishScreen totalPoints={totalPoints} points={points} />
       )}
     </div>
   );
