@@ -40,12 +40,14 @@ function reducer(state, action) {
         ...state,
         answer: action.payload,
         points:
-          currentQuestion.correctOption === action.payload
-            ? state.points + currentQuestion.points
-            : state.points,
+        currentQuestion.correctOption === 
         // index: +1,
       };
-
+    case "correctAnswer":
+      return {
+        ...state,
+        points: action.payload,
+      };
     default:
       throw new Error("The action is unknown");
   }

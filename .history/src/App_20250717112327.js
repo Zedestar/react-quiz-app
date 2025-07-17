@@ -3,17 +3,13 @@ import { useEffect, useReducer } from "react";
 import Header from "./Header";
 import Loader from "./Loader";
 import Error from "./Error";
-// import Main from "./main";
+import Main from "./main";
 import StartScreen from "./start-screen";
-import Question from "./question";
 
 const initialState = {
   questions: [],
   // laoding, error, ready, active, finished
   status: "loading",
-  index: 0,
-  answer: null,
-  points: 0,
 };
 
 function reducer(state, action) {
@@ -30,32 +26,17 @@ function reducer(state, action) {
         status: "error",
       };
     case "startState":
-      return {
+      return{
         ...state,
         status: "active",
-      };
-    case "newAnswer":
-      const currentQuestion = state.questions.at(state.index);
-      return {
-        ...state,
-        answer: action.payload,
-        points:
-          currentQuestion.correctOption === action.payload
-            ? state.points + currentQuestion.points
-            : state.points,
-        // index: +1,
-      };
-
+      }
     default:
       throw new Error("The action is unknown");
   }
 }
 
 function App() {
-  const [{ questions, status, index, answer, points }, dispach] = useReducer(
-    reducer,
-    initialState
-  );
+  const [{ questions, status }, dispach] = useReducer(reducer, initialState);
   const numberOfQuestion = questions.length;
 
   useEffect(function () {
@@ -80,16 +61,9 @@ function App() {
       {status === "loading" && <Loader />}
       {status === "error" && <Error />}
       {status === "ready" && (
-        <StartScreen numberOfQuestion={numberOfQuestion} dispach={dispach} />
+        <StartScreen numberOfQuestion={numberOfQuestion} />
       )}
-      {status === "active" && (
-        <Question
-          question={questions[index]}
-          answer={answer}
-          dispach={dispach}
-          points={points}
-        />
-      )}
+      {status === "active" && }
     </div>
   );
 }

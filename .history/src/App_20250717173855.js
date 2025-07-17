@@ -45,7 +45,11 @@ function reducer(state, action) {
             : state.points,
         // index: +1,
       };
-
+    case "correctAnswer":
+      return {
+        ...state,
+        points: action.payload,
+      };
     default:
       throw new Error("The action is unknown");
   }

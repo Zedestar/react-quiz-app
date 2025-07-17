@@ -35,17 +35,16 @@ function reducer(state, action) {
         status: "active",
       };
     case "newAnswer":
-      const currentQuestion = state.questions.at(state.index);
       return {
         ...state,
         answer: action.payload,
-        points:
-          currentQuestion.correctOption === action.payload
-            ? state.points + currentQuestion.points
-            : state.points,
         // index: +1,
       };
-
+    case "correctAnswer":
+      return {
+        ...state,
+        points: action.payload,
+      };
     default:
       throw new Error("The action is unknown");
   }
