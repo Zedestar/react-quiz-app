@@ -1,14 +1,12 @@
 // import DateCounter from "./DateCounter";
 import { useEffect, useReducer } from "react";
 import Header from "./Header";
-import Loader from "./Loader";
-import Error from "./Error";
 import Main from "./main";
 
 const initialState = {
   questions: [],
   // laoding, error, ready, active, finished
-  status: "loading",
+  status: "laoding",
 };
 
 function reducer(state, action) {
@@ -30,7 +28,7 @@ function reducer(state, action) {
 }
 
 function App() {
-  const [{ questions, status }, dispach] = useReducer(reducer, initialState);
+  const [state, dispach] = useReducer(reducer, initialState);
 
   useEffect(function () {
     fetch("http://localhost:9000/questions")
@@ -51,14 +49,10 @@ function App() {
   return (
     <div className="app">
       <Header />
-      {status === "loading" && <Loader />}
-      {status === "error" && <Error />}
-      {status === "ready" && (
-        <Main>
-          <p>1/15</p>
-          <p>Questions</p>
-        </Main>
-      )}
+      <Main>
+        <p>1/15</p>
+        <p>Questions</p>
+      </Main>
     </div>
   );
 }

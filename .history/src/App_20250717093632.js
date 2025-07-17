@@ -1,14 +1,12 @@
 // import DateCounter from "./DateCounter";
 import { useEffect, useReducer } from "react";
 import Header from "./Header";
-import Loader from "./Loader";
-import Error from "./Error";
 import Main from "./main";
 
 const initialState = {
   questions: [],
   // laoding, error, ready, active, finished
-  status: "loading",
+  status: "laoding",
 };
 
 function reducer(state, action) {
@@ -51,14 +49,12 @@ function App() {
   return (
     <div className="app">
       <Header />
-      {status === "loading" && <Loader />}
-      {status === "error" && <Error />}
-      {status === "ready" && (
-        <Main>
-          <p>1/15</p>
-          <p>Questions</p>
-        </Main>
-      )}
+      {status == "loading"}
+      <Main>
+        <p>1/15</p>
+        <p>Questions</p>
+      </Main>
+      }
     </div>
   );
 }

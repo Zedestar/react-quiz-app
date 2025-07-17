@@ -53,12 +53,13 @@ function App() {
       <Header />
       {status === "loading" && <Loader />}
       {status === "error" && <Error />}
-      {status === "ready" && (
+      {status === " ready" && (
         <Main>
           <p>1/15</p>
           <p>Questions</p>
         </Main>
       )}
+      <p>I think there is something studip is going on here i dont know</p>
     </div>
   );
 }

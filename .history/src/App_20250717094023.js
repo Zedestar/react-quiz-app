@@ -8,7 +8,7 @@ import Main from "./main";
 const initialState = {
   questions: [],
   // laoding, error, ready, active, finished
-  status: "loading",
+  status: "laoding",
 };
 
 function reducer(state, action) {
@@ -53,12 +53,10 @@ function App() {
       <Header />
       {status === "loading" && <Loader />}
       {status === "error" && <Error />}
-      {status === "ready" && (
-        <Main>
-          <p>1/15</p>
-          <p>Questions</p>
-        </Main>
-      )}
+      <Main>
+        <p>1/15</p>
+        <p>Questions</p>
+      </Main>
     </div>
   );
 }
