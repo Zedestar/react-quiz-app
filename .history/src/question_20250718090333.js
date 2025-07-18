@@ -12,7 +12,6 @@ function Question({
   index,
   numberOfQuestion,
   totalPoints,
-  timeRemaining,
 }) {
   console.log(question);
   return (
@@ -26,7 +25,7 @@ function Question({
       <h4>{question.question}</h4>
       <Options question={question} answer={answer} dispach={dispach} />
       <Footer>
-        <Timer timeRemaining={timeRemaining} dispach={dispach} />
+        <Timer />
         <NextQuestion dispach={dispach} answer={answer} />
       </Footer>
     </div>

@@ -65,11 +65,6 @@ function reducer(state, action) {
           timeRemaining: state.timeRemaining - 1,
         };
       } else {
-        return {
-          ...state,
-          status: "finished",
-          timeRemaining: 50,
-        };
       }
     case "resetQuiz":
       return {

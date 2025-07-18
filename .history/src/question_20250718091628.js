@@ -26,7 +26,7 @@ function Question({
       <h4>{question.question}</h4>
       <Options question={question} answer={answer} dispach={dispach} />
       <Footer>
-        <Timer timeRemaining={timeRemaining} dispach={dispach} />
+        <Timer timeRemaining={timeRemaining} />
         <NextQuestion dispach={dispach} answer={answer} />
       </Footer>
     </div>

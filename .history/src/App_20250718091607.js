@@ -59,18 +59,10 @@ function reducer(state, action) {
         };
       }
     case "setTime":
-      if (state.timeRemaining > -1) {
-        return {
-          ...state,
-          timeRemaining: state.timeRemaining - 1,
-        };
-      } else {
-        return {
-          ...state,
-          status: "finished",
-          timeRemaining: 50,
-        };
-      }
+      return {
+        ...state,
+        timeRemaining: state.timeRemaining - 1,
+      };
     case "resetQuiz":
       return {
         ...state,
