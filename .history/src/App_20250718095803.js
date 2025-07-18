@@ -8,7 +8,8 @@ import StartScreen from "./start-screen";
 import Question from "./question";
 import FinishScreen from "./finish-screen";
 
-const time_per_each_question = 30;
+
+const time_per_each_ question = 30,
 
 const initialState = {
   questions: [],
@@ -36,7 +37,7 @@ function reducer(state, action) {
       return {
         ...state,
         status: "active",
-        timeRemaining: state.questions.length * time_per_each_question,
+        timeRemaining: state.questions.length * 
       };
     case "newAnswer":
       const currentQuestion = state.questions.at(state.index);

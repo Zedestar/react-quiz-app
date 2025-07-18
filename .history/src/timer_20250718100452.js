@@ -8,8 +8,8 @@ function Timer({ timeRemaining, dispach }) {
     return () => clearInterval(id);
   }, [dispach]);
 
-  const mins = Math.floor(timeRemaining / 60);
-  const secs = Math.floor(timeRemaining % 60);
+  const mins = timeRemaining / 60;
+  const secs = timeRemaining % 60;
 
   return (
     <div className="timer">
